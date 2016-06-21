@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-const testVersion = 4 // find the value in gigasecond_test.go
+const testVersion = 4
 
 var gigasecond = int64(math.Pow(10, 9))
 
