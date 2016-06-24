@@ -8,7 +8,7 @@ Hamming.prototype.compute = function(first, second) {
   var diff = 0;
 
   for (var i = 0; i < first.length; i++) {
-    if (first.charAt(i) != second.charAt(i)) {
+    if (first.charAt(i) !== second.charAt(i)) {
       diff += 1;
     }
   }
