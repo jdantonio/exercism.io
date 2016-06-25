@@ -9,6 +9,12 @@ Take it down and pass it around, no more bottles of beer on the wall.\n"
 const NONE = "No more bottles of beer on the wall, no more bottles of beer.\n\
 Go to the store and buy some more, 99 bottles of beer on the wall.\n"
 
+function downSequence(high, low) {
+  return Array.apply(0, Array(high - low + 1)).map(function(x, y) {
+    return high - y;
+  });
+}
+
 BeerSong.prototype.verse = function(verse) {
   if (verse === 0) {
     return NONE;
@@ -20,16 +26,12 @@ BeerSong.prototype.verse = function(verse) {
   }
 };
 
-BeerSong.prototype.sing = function(start, stop) {
-  stop = stop || 0;
-  var song = '';
-  for (var i = start; i >= stop; i--) {
-    song += this.verse(i);
-    if (i !== stop) {
-      song += '\n';
-    }
-  }
-  return song;
+BeerSong.prototype.sing = function(high, low) {
+  low = low || 0;
+  return downSequence(high, low).reduce(function(song, verse) {
+    song.push(this.verse(verse));
+    return song;
+  }.bind(this), []).join('\n');
 };
 
 module.exports = BeerSong;
