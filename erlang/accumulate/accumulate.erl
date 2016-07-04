@@ -4,5 +4,7 @@
          accumulate/2
         ]).
 
-accumulate(_Fn, _Ls) ->
+accumulate(Fn, [Head|Tail]) ->
+  [Fn(Head)] ++ accumulate(Fn, Tail);
+accumulate(_Fn, []) ->
   [].
