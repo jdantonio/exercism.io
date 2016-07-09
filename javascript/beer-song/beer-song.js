@@ -1,3 +1,6 @@
+/*eslint no-const-assign: "error"*/
+/*eslint-env es6*/
+
 var BeerSong = function() {};
 
 const MANY = "{1} bottles of beer on the wall, {1} bottles of beer.\n\

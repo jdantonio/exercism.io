@@ -1,3 +1,6 @@
+/*eslint no-const-assign: "error"*/
+/*eslint-env es6*/
+
 var DnaTranscriber = function() { };
 
 const D2R = {
