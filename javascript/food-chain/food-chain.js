@@ -28,7 +28,7 @@ FoodChain.prototype.verse = function(num) {
   if (num === 8) {
     return HORSE;
   }
-  
+
   var verses = [FIRST_LINE.replace(THIS_MARKER, ANIMALS[num][0])];
 
   if (ANIMALS[num][1]) {
@@ -45,6 +45,16 @@ FoodChain.prototype.verse = function(num) {
 
   verses.push(LAST_LINE)
   return verses.join('\n');
+}
+
+FoodChain.prototype.verses = function(first, last) {
+  var song = [];
+  
+  for (var i = first; i <= last; i++) {
+    song.push(this.verse(i));
+  }
+
+  return song.join('\n') + '\n';
 }
 
 module.exports = FoodChain;
