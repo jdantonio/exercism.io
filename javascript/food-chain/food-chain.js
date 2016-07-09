@@ -20,10 +20,15 @@ const ANIMALS = [
 ]
 
 const SPIDER = " that wriggled and jiggled and tickled inside her.";
+const HORSE = "I know an old lady who swallowed a horse.\nShe's dead, of course!\n";
 
 var FoodChain = function() { }
 
 FoodChain.prototype.verse = function(num) {
+  if (num === 8) {
+    return HORSE;
+  }
+  
   var verses = [FIRST_LINE.replace(THIS_MARKER, ANIMALS[num][0])];
 
   if (ANIMALS[num][1]) {
