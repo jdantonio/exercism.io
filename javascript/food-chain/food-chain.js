@@ -143,7 +143,7 @@ module.exports = function FoodChain() {
     verse: function(num) {
       return (new VERSES[num-1]()).toString();
     },
-    verses(first, last) {
+    verses: function(first, last) {
       return sequence(first, last).reduce(function(song, num) {
         song.push(this.verse(num));
         return song;
