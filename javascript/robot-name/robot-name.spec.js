@@ -17,29 +17,30 @@ describe('Robot', function() {
     expect(robot.name).toMatch(/^[A-Z]{2}\d{3}$/);
   });
 
-  xit('name is the same each time', function() {
+  it('name is the same each time', function() {
     expect(robot.name).toEqual(robot.name);
   });
 
-  xit('different robots have different names', function() {
+  it('different robots have different names', function() {
     var differentRobot = new Robot();
     expect(differentRobot.name).not.toEqual(robot.name);
   });
 
-  xit('there can be lots of robots with different names each', function() {
+  it('there can be lots of robots with different names each', function() {
     var i,
         numRobots = 10000,
         usedNames = {};
 
     for (i = 0; i < numRobots; i++) {
       var newRobot = new Robot();
+      //expect(newRobot.name).toMatch(/^[A-Z]{2}\d{3}$/);
       usedNames[newRobot.name] = true;
     }
 
     expect(Object.keys(usedNames).length).toEqual(numRobots);
   });
 
-  xit('is able to reset the name', function() {
+  it('is able to reset the name', function() {
     var originalName = robot.name;
     robot.reset();
     var newName = robot.name;
@@ -47,7 +48,7 @@ describe('Robot', function() {
     expect(originalName).not.toEqual(newName);
   });
 
-  xit('should set a unique name after reset', function() {
+  it('should set a unique name after reset', function() {
     var i,
         numResets = 10000,
         usedNames = {};
@@ -57,6 +58,7 @@ describe('Robot', function() {
     for (i = 0; i < numResets; i++) {
       robot.reset();
       usedNames[robot.name] = true;
+      //expect(robot.name).toMatch(/^[A-Z]{2}\d{3}$/);
     }
 
     expect(Object.keys(usedNames).length).toEqual(numResets + 1);
