@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0  ]
+  then
+    echo "No arguments supplied"
+    exit 1
+fi
+
+# wd=${PWD##*/}
+
+wd=$PWD
+mkdir $wd/$1/build
+cp $wd/test $wd/$1
+chmod +x $wd/$1/test
+cd $wd/$1/build
+cmake -G "Unix Makefiles" ..
+cd $wd
+
